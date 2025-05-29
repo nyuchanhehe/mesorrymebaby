@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Apology Letter Flow</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+  body {
+    font-family: 'Baloo 2', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffe4f1, #fff0f6);
+    color: #4b2e83;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+  #container {
+    background: #fff5fb;
+    border: 4px solid #c47aff;
+    border-radius: 20px;
+    padding: 30px 25px 40px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 0 25px #d5a4fcaa;
+    position: relative;
+  }
+  p.message {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+    position: relative;
+  }
+  button {
+    background-color: #c47aff;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 700;
+    padding: 14px 28px;
+    margin: 8px 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px #b06efcaa;
+  }
+  button:hover {
+    background-color: #9f3aff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px #7d26d0bb;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  /* Final letter style */
+  .final-letter {
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    background: #fdf0f9;
+    border: 2.5px dashed #c47aff;
+    padding: 20px 22px;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #d5a4fcaa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Cute cat images styling */
+  .cat-top, .cat-bottom {
+    position: absolute;
+    width: 80px;
+    user-select: none;
+  }
+  .cat-top {
+    top: -50px;
+    left: 20px;
+    animation: floatUpDown 3s ease-in-out infinite;
+  }
+  .cat-bottom {
+    bottom: -55px;
+    right: 20px;
+    animation: floatUpDown 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  /* Floating animation */
+  @keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <!-- Content will be injected here by JS -->
+</div>
+
+<!-- Cute cat GIFs -->
+<img class="cat-top" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat top" />
+<img class="cat-bottom" src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="Cute cat bottom" />
+
+<script>
+  const container = document.getElementById('container');
+
+  // Pages content and button config
+  const pages = {
+    1: {
+      message: "I'm sorry my baby! (〃＞＿＜;〃)",
+      buttons: [{text: "Next!! ~.~", next: 2}]
+    },
+    2: {
+      message: "Do you want to open it? (╥﹏╥)",
+      buttons: [
+        {text: "Open it", next: 3},
+        {text: "No ty!", next: 'retry'}
+      ]
+    },
+    retry: {
+      message: "Awh.. Let’s try again?",
+      buttons: [{text: "Again.. ;[", next: 2}]
+    },
+    3: {
+      message: "Are you sure? (⁄ ⁄•⁄ω⁄•⁄ ⁄)",
+      buttons: [
+        {text: "Yeshh..", next: 4},
+        {text: "Nu :<", next: 'retry'}
+      ]
+    },
+    4: {
+      message: "Wehhhhh (｡•́︿•̀｡)",
+      buttons: [
+        {text: "Go on..", next: 5},
+        {text: "Nooo :<", next: 'retry'}
+      ]
+    },
+    5: {
+      message: "Are you really really REALLY sure? (⚆ _ ⚆)",
+      buttons: [
+        {text: "I am T_T", next: 6},
+        {text: "Wait...", next: 'retry'}
+      ]
+    },
+    6: {
+      message: `<div class="final-letter">Hi baby,
+
+I'm sorry if I might’ve gone too far earlier—my emotions just went wild kanina. No, I didn’t yell at you, and noooo, I’m not mad. It’s just that I wanted you to hear me. I wasn’t complaining; it’s just that I was nangaasar, and I’m sorry hehe.
+
+Also, the reason I’m not texting or chatting with you is because I wanted to see if you’d talk to me first... but you didn’t :<. Anyways, that’s okay. I just want us to be okay again. I wanna see your pretty face, your cute smile—everything. I just wanna see you happy because it means the world to me.
+
+You’re probably busy with the editing and all your reports, but yeah... I’m sorry. PhLeAzzz F0rg1v3 me hehezz… un lngg.
+
+I love youuuu 💖</div>`,
+      buttons: []
+    }
+  };
+
+  function renderPage(pageId) {
+    const page = pages[pageId];
+    if (!page) return;
+
+    container.innerHTML = '';
+
+    const messageElem = document.createElement('p');
+    messageElem.className = 'message';
+    messageElem.innerHTML = page.message;
+    container.appendChild(messageElem);
+
+    if (page.buttons.length) {
+      const btnGroup = document.createElement('div');
+      btnGroup.className = 'btn-group';
+      page.buttons.forEach(btn => {
+        const button = document.createElement('button');
+        button.textContent = btn.text;
+        button.onclick = () => {
+          renderPage(btn.next);
+        };
+        btnGroup.appendChild(button);
+      });
+      container.appendChild(btnGroup);
+    }
+  }
+
+  // Start at page 1
+  renderPage(1);
+</script>
+
+</body>
+</html>
