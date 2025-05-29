@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgive Me 💌</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+      transition: background 0.4s ease-in-out;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      background-color: #f48fb1;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #f06292;
+    }
+    .alt-btn {
+      background-color: #80deea;
+    }
+    img.sticker {
+      max-width: 200px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+    }
+    .letter-text {
+      max-width: 500px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.5;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="page1">
+    <img src="https://media.tenor.com/-u-UL1M8X9wAAAAi/bear-blush.gif" alt="blushing bear" class="sticker">
+    <p>I'm sorry my baby! (〃＞＿＜;〃)</p>
+    <button onclick="showPage('page2')">Next!! →</button>
+  </div>  <div id="page2" class="hidden">
+    <img src="https://media.tenor.com/lh7lhImrs-sAAAAi/bear-love-letter.gif" alt="envelope gif" class="sticker">
+    <p>Do you want to open it? (╥﹏╥)</p>
+    <button onclick="showPage('page3')">Open it</button>
+    <button class="alt-btn" onclick="showPage('retry')">No ty!</button>
+  </div>  <div id="retry" class="hidden">
+    <img src="https://media.tenor.com/PMkWLeNcJ28AAAAi/sad-crying.gif" alt="sad crying gif" class="sticker">
+    <p>Awh.. Let’s try again?</p>
+    <button onclick="showPage('page2')">Again.. ;[</button>
+  </div>  <div id="page3" class="hidden">
+    <img src="https://media.tenor.com/kCMEzAEYohcAAAAi/shy-cute.gif" alt="shy gif" class="sticker">
+    <p>Are you sure? (⁄ ⁄•⁄ω⁄•⁄ ⁄)</p>
+    <button onclick="showPage('page4')">Yeshh..</button>
+    <button class="alt-btn" onclick="showPage('retry')">Nu :<</button>
+  </div>  <div id="page4" class="hidden">
+    <img src="https://media.tenor.com/BctVoShG5r8AAAAi/sad.gif" alt="wehhh gif" class="sticker">
+    <p>Wehhhhh (｡•́︿•̀｡)</p>
+    <button onclick="showPage('page5')">Oooooooo</button>
+    <button class="alt-btn" onclick="showPage('retry')">Nooo :<</button>
+  </div>  <div id="page5" class="hidden">
+    <img src="https://media.tenor.com/EsuAcX_XKjUAAAAi/pet-pat.gif" alt="really sure gif" class="sticker">
+    <p>Are you really really REALLY sure? (⚆ _ ⚆)</p>
+    <button onclick="showPage('page6')">OO NGAAAAA</button>
+    <button class="alt-btn" onclick="showPage('retry')">Wait...</button>
+  </div>  <div id="page6" class="hidden">
+    <img src="https://media.tenor.com/DO6p1Hwrz-YAAAAi/love-letter.gif" alt="love letter gif" class="sticker">
+    <h2>💌 Final Letter 💌</h2>
+    <div class="letter-text">
+      Hi baby, I'm sorry I might've went too far, my emotions just went wild kanina..<br /><br />
+      No, I didn't yell at you, And noooo I'm not mad, it's just I wanted you to hear me,<br />
+      I wasn't complaining it's just I'm nangaasar and I'm sorry hehe..<br /><br />
+      Also, the reason I'm not texting or chatting you is just I wanted to see if you're gonna talk to me first, you didn't.. :<<br /><br />
+      Anyways that's okay, I just want us to be okay again, I wanna see your pretty face, your cute smile everything.<br /><br />
+      I just wanna see you happy, it means the world to me. You're probably busy with the editing and things pati narin reporting mo pero yeah..<br /><br />
+      I'm sorry<br />
+      phLeAzzz F0rg1v3 me Hehezz...<br /><br />
+      un lngg iloveyouuuuu 💖
+    </div>
+  </div>  <script>
+    function showPage(id) {
+      const pages = document.querySelectorAll('div');
+      pages.forEach(p => p.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script></body>
+</html>
